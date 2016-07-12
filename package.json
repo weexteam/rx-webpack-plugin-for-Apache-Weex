@@ -1,0 +1,37 @@
+{
+  "name": "weex-rx-webpack-plugin",
+  "main": "lib/index",
+  "description": "weex webpack plugin for Rx framework",
+  "version": "0.1.0",
+  "licenses": "GPL-3.0",
+  "keyword": [
+    "weex",
+    "webpack",
+    "plugin",
+    "webpack-rx-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:alife/webpack-rx-plugin.git"
+  },
+  "files": [
+    "lib"
+  ],
+  "author": {
+    "name": "hugohua",
+    "email": "baofen14787@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "hugohua",
+      "email": "baofen14787@gmail.com"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "peerDependencies":{
+    "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
+}

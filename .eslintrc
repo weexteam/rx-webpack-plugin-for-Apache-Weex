@@ -1,0 +1,41 @@
+{
+    "version": "0.4.0",
+    "rules": {
+        "no-console": 0,
+        "no-eq-null": 2,
+        "no-multi-spaces": [1, {
+            "exceptions": {
+                "VariableDeclarator": true,
+                "ImportDeclaration": true
+            }
+        }],
+        "comma-spacing": [1, {
+            "before": false,
+            "after": true
+        }],
+        "indent": [2, 4, {"SwitchCase": 1}],
+        "quotes": [1, "single"],
+        "comma-dangle": [2, "never"],
+        "no-debugger": 1,
+        "no-extra-semi": 0,
+        "no-inner-declarations": 2,
+        "no-regex-spaces": 1,
+        "valid-typeof": 2,
+        "default-case": 1,
+        "no-implied-eval": 2,
+        "no-with": 2,
+        "space-infix-ops": [2, {"int32Hint": true}],
+        "linebreak-style": [2, "unix"],
+        "max-len": [2, 140, 4,
+            {
+                "ignoreComments": true,
+                "ignoreUrls": true
+            }
+        ]
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {},
+    "extends": "eslint:recommended"
+}
