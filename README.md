@@ -8,19 +8,6 @@ build rx project to weex.
  npm i -D weex-rx-webpack-plugin
  ```
  
- ## How to Use
- 
- 只需在webpack配置的plugin属性中初始化插件即可。
- 
-```
-//webpack.config.js
-var WebpackRxPlugin = require("@alife/webpack-rx-plugin");
-
-plugins: [
-	new WebpackRxPlugin()	        
-]
-
-```
 
 ## Usage
 
