@@ -5,3 +5,5 @@ temp/
 *.log
 .DS_Store
 .idea
+lib
+test

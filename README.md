@@ -23,6 +23,10 @@ plugins: [
 ]
 ```
 
+## Options
+
+//todo
+
 ## License
 
 GPL-3.0
