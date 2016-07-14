@@ -2,7 +2,7 @@
   "name": "weex-rx-webpack-plugin",
   "main": "lib/index",
   "description": "weex webpack plugin for Rx framework",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "licenses": "GPL-3.0",
   "keyword": [
     "weex",
@@ -14,9 +14,29 @@
     "type": "git",
     "url": "git@github.com:weexteam/weex-rx-webpack-plugin.git"
   },
-  "files": [
-    "lib"
-  ],
+  "scripts": {
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "test:build": "webpack --config test/webpack.config.js",
+    "test:mocha": "mocha test/test.js",
+    "test": "npm run prepublish && npm run test:build && npm run test:mocha",
+    "serve": "serve ./test -p 12581"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-plugin-add-module-exports": "~0.1.2",
+    "chai": "^3.5.0",
+    "eslint": "^2.13.1",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
+    "mocha": "^2.4.5",
+    "serve": "^1.4.0",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "webpack": "~1.13.0"
+  },
   "author": {
     "name": "hugohua",
     "email": "baofen14787@gmail.com"
@@ -33,9 +53,14 @@
   ],
   "readmeFilename": "README.md",
   "peerDependencies":{
-    "webpack": "^1.12.14"
+    "webpack": "~1.13.0"
   },
-  "devDependencies": {
-    "webpack": "^1.12.14"
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
   }
 }
