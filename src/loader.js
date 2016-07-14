@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
     if (typeof define !== 'undefined' || typeof callNative !== 'undefined') {

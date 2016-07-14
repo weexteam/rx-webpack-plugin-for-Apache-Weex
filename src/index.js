@@ -1,13 +1,14 @@
+'use strict';
 
 import ExternalModuleFactoryPlugin from 'webpack/lib/ExternalModuleFactoryPlugin';
 import AmdMainTemplatePlugin from './AmdMainTemplatePlugin';
 
-class WeexRxWebpackPlugin {
+export default class WeexRxWebpackPlugin {
 
     constructor(options){
         this.options = Object.assign({},{
             // set true , will add h5 loader to bundle
-            addLoader : false
+            addWebLoader : false
         },options);
     }
 
@@ -34,5 +35,3 @@ class WeexRxWebpackPlugin {
     }
 
 }
-
-module.exports = WeexRxWebpackPlugin;

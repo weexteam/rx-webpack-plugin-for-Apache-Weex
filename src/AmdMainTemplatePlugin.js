@@ -1,9 +1,11 @@
+'use strict';
+
 import ConcatSource from 'webpack/lib/ConcatSource';
 import fs from 'fs';
 import path from 'path';
 
 
-class AmdMainTemplatePlugin {
+export default class AmdMainTemplatePlugin {
 
     constructor(options){
         this.name = '[name]';
@@ -28,7 +30,7 @@ class AmdMainTemplatePlugin {
                 }),
                 initHandler,
                 name,
-                loader = '';
+                loader = '',
                 requires = '';
 
             externalsDepsArray.map( (mod,index) => {
@@ -47,7 +49,7 @@ class AmdMainTemplatePlugin {
 
             initHandler = 'require('+ JSON.stringify(name) +')';
 
-            if(this.options.addLoader){
+            if(this.options.addWebLoader){
                 try {
                     loader = fs.readFileSync(path.join(path.join(__dirname,'loader.js')), "utf8");
                 }catch (e){
@@ -73,5 +75,3 @@ class AmdMainTemplatePlugin {
     }
 
 }
-
-module.exports = AmdMainTemplatePlugin;
