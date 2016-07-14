@@ -12,29 +12,27 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:weexteam/weex-rx-webpack-plugin.git"
+    "url": "git+https://git@github.com:weexteam/weex-rx-webpack-plugin.git"
   },
   "scripts": {
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "test:build": "webpack --config test/webpack.config.js",
-    "test:mocha": "mocha test/test.js",
-    "test": "npm run prepublish && npm run test:build && npm run test:mocha",
-    "serve": "serve ./test -p 12581"
+    "coverage": "NODE_ENV=test npm test && nyc report --reporter=text-lcov | coveralls",
+    "pretest": "npm run prepublish",
+    "test": "nyc mocha"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
     "babel-plugin-add-module-exports": "~0.1.2",
-    "chai": "^3.5.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "~6.5.0",
+    "babel-preset-stage-0": "~6.5.0",
     "eslint": "^2.13.1",
-    "less": "^2.6.1",
-    "less-loader": "^2.2.3",
+    "coveralls": "^2.11.6",
+    "expect": "^1.20.2",
     "mocha": "^2.4.5",
-    "serve": "^1.4.0",
-    "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0",
+    "nyc": "^7.0.0",
     "webpack": "~1.13.0"
   },
   "author": {
@@ -52,12 +50,14 @@
     }
   ],
   "readmeFilename": "README.md",
-  "peerDependencies":{
+  "peerDependencies": {
     "webpack": "~1.13.0"
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "stage-0",
+      "react"
     ],
     "plugins": [
       "add-module-exports"
