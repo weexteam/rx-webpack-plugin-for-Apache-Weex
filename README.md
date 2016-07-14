@@ -4,7 +4,7 @@ build rx project to weex.
 
 ## Installation
  
- ```
+ ```shell
  npm i --save-dev weex-rx-webpack-plugin
  ```
  
