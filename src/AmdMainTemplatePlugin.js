@@ -51,7 +51,7 @@ export default class AmdMainTemplatePlugin {
 
             if(this.options.addWebLoader){
                 try {
-                    loader = fs.readFileSync(path.join(path.join(__dirname,'loader.js')), "utf8");
+                    loader = fs.readFileSync(path.join(__dirname, 'loader.js'), "utf8");
                 }catch (e){
                     throw e;
                 }
