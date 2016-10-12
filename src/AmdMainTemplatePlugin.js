@@ -68,7 +68,7 @@ export default class AmdMainTemplatePlugin {
         });
 
         mainTemplate.plugin("hash", (hash) => {
-            hash.update("exports kmd");
+            hash.update("exports amd");
             hash.update(this.name + "");
 
         });
