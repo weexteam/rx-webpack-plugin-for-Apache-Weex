@@ -34,7 +34,6 @@
         }
 
         var originId = id;
-        id = id.replace('@ali', 'kg');
 
         var mod = modules[id];
         if (!mod) {
