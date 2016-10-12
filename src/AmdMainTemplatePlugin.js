@@ -4,13 +4,11 @@ import ConcatSource from 'webpack/lib/ConcatSource';
 import fs from 'fs';
 import path from 'path';
 
-
 export default class AmdMainTemplatePlugin {
 
     constructor(options){
         this.name = '[name]';
         this.options = options;
-
     }
 
     apply(compilation){
@@ -34,7 +32,6 @@ export default class AmdMainTemplatePlugin {
                 requires = '';
 
             externalsDepsArray.map( (mod,index) => {
-
                 requires += 'var ' + externalsArguments[index] + '=require("'+mod+'");';
             });
 
@@ -45,7 +42,6 @@ export default class AmdMainTemplatePlugin {
                 hash: hash,
                 chunk: chunk
             });
-
 
             initHandler = 'require('+ JSON.stringify(name) +')';
 
@@ -58,8 +54,6 @@ export default class AmdMainTemplatePlugin {
             }
 
             return new ConcatSource( loader + "define(" + JSON.stringify(name) + ", " + externalsDepsArray + ", function(require,exports,module) {" + requires + " return ", source, "});" + initHandler);
-
-
         });
 
         mainTemplate.plugin('global-hash-paths', (paths) => {
@@ -70,7 +64,6 @@ export default class AmdMainTemplatePlugin {
         mainTemplate.plugin("hash", (hash) => {
             hash.update("exports amd");
             hash.update(this.name + "");
-
         });
     }
 
