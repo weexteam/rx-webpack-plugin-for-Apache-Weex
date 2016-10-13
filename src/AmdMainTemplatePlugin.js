@@ -18,21 +18,21 @@ export default class AmdMainTemplatePlugin {
         compilation.templatesPlugin('render-with-entry', (source, chunk, hash) => {
 
             let externals = chunk.modules.filter( m => {
-                    return m.external;
-                }),
-                externalsDepsArray = externals.map( m => {
-                    return typeof m.request === 'object' ? m.request.amd : m.request;
-                }),
-                externalsArguments = externals.map( m => {
-                    return '__WEBPACK_EXTERNAL_MODULE_' + m.id + '__';
-                }),
-                initHandler,
+                return m.external;
+            });
+            let externalsDepsArray = externals.map( m => {
+                return typeof m.request === 'object' ? m.request.amd : m.request;
+            });
+            let externalsArguments = externals.map( m => {
+                return '__WEBPACK_EXTERNAL_MODULE_' + m.id + '__';
+            });
+            let initHandler,
                 name,
                 loader = '',
                 requires = '';
 
             externalsDepsArray.map( (mod,index) => {
-                requires += 'var ' + externalsArguments[index] + '=require("'+mod+'");';
+                requires += 'var ' + externalsArguments[index] + ' = require("'+mod+'");';
             });
 
             externalsArguments = externalsArguments.join(', ');
@@ -53,7 +53,7 @@ export default class AmdMainTemplatePlugin {
                 }
             }
 
-            return new ConcatSource( loader + "define(" + JSON.stringify(name) + ", " + externalsDepsArray + ", function(require,exports,module) {" + requires + " return ", source, "});" + initHandler);
+            return new ConcatSource( loader + "define(" + JSON.stringify(name) + ", " + externalsDepsArray + ", function(require, exports, module) { return ", source, "});" + initHandler);
         });
 
         mainTemplate.plugin('global-hash-paths', (paths) => {
