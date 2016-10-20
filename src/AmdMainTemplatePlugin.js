@@ -53,7 +53,7 @@ export default class AmdMainTemplatePlugin {
                 }
             }
 
-            return new ConcatSource( loader + "define(" + JSON.stringify(name) + ", " + externalsDepsArray + ", function(require, exports, module) { return ", source, "});" + initHandler);
+            return new ConcatSource( loader + "define(" + JSON.stringify(name) + ", " + externalsDepsArray + ", function(require, exports, module) { " + requires + "return ", source, "});" + initHandler);
         });
 
         mainTemplate.plugin('global-hash-paths', (paths) => {

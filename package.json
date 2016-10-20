@@ -2,7 +2,7 @@
   "name": "weex-rx-webpack-plugin",
   "main": "lib/index",
   "description": "weex webpack plugin for Rx framework",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "licenses": "GPL-3.0",
   "keyword": [
     "weex",
